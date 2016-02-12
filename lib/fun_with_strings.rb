@@ -7,7 +7,7 @@ module FunWithStrings
     number_words = self.scan(/\w+/).inject(Hash.new(0)) { |hash, w| hash[w.downcase] += 1; hash}
   end
   def anagram_groups
-    # your code here
+    return self.split.group_by{ |word| word.downcase.chars.sort }.values
   end
 end
 
