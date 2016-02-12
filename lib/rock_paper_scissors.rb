@@ -44,8 +44,10 @@ class RockPaperScissors
   end
 
   def self.tournament_winner(tournament)
-   return self.winner(tournament[0], tournament[1]) if tournament.flatten.size == 4
-   self.winner(self.tournament_winner(tournament[0]), self.tournament_winner(tournament[1]))
+    if tournament[0][0].is_a?(String)
+      return self.winner(tournament[0], tournament[1])
+    end
+    self.winner(self.tournament_winner(tournament[0]), self.tournament_winner(tournament[1]))
   end
 
 end
